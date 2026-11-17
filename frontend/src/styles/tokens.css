@@ -1,0 +1,66 @@
+@import "tailwindcss";
+@import "./fonts.css";
+
+:root {
+  --color-brand: #0F5C3A;
+  --color-brand-surface: #F5FAF7;
+  --color-text: #14211B;
+  --color-safe: #1B7F3B;
+  --color-suspicious: #B7791F;
+  --color-scam: #C0262D;
+  --color-info: #1D5FA8;
+  --color-border: #D5E0D9;
+
+  --radius-card: 12px;
+  --radius-big-btn: 16px;
+
+  --shadow-soft: 0 2px 8px rgba(20, 33, 27, 0.08);
+
+  --font-family-bangla: "Noto Sans Bengali", "Hind Siliguri", system-ui, -apple-system, sans-serif;
+}
+
+@theme {
+  --color-brand: #0F5C3A;
+  --color-brand-surface: #F5FAF7;
+  --color-text-main: #14211B;
+  --color-safe: #1B7F3B;
+  --color-suspicious: #B7791F;
+  --color-scam: #C0262D;
+  --color-info: #1D5FA8;
+  --color-border-subtle: #D5E0D9;
+
+  --font-bangla: "Noto Sans Bengali", "Hind Siliguri", system-ui, sans-serif;
+
+  --radius-card: 12px;
+  --radius-big: 16px;
+}
+
+/* Base typography and body rules */
+html, body {
+  font-family: var(--font-family-bangla);
+  background-color: var(--color-brand-surface);
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Ensure touch targets meet minimum 48px */
+.touch-target {
+  min-width: 48px;
+  min-height: 48px;
+}
+
+/* Bangla paragraph line height requirement: 1.6 */
+p, .bangla-text {
+  line-height: 1.6;
+}
+
+/* Big Button rule: min height 56px, 16px radius */
+.big-button {
+  min-height: 56px;
+  border-radius: var(--radius-big-btn);
+  font-size: 18px;
+  font-weight: 600;
+}

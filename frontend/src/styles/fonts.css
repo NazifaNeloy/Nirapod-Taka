@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'Noto Sans Bengali';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: local('Noto Sans Bengali'), local('Hind Siliguri'), local('Segoe UI'), system-ui, sans-serif;
+}
