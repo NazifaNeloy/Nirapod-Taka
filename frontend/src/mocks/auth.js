@@ -1,12 +1,6 @@
 // Mock data for authentication endpoints
 
-let mockCurrentUser = {
-  id: 'usr_inv_001',
-  phone: '01700000001',
-  name: 'রহিম উদ্দিন',
-  district: 'Dhaka',
-  language: 'bn'
-};
+let mockCurrentUser = null;
 
 /**
  * Handles mock login request.
@@ -20,6 +14,13 @@ export function handleMockLogin(payload) {
       message_bn: 'ফোন নম্বর বা পাসওয়ার্ড ভুল হয়েছে।'
     };
   }
+  mockCurrentUser = {
+    id: 'usr_inv_001',
+    phone: payload.phone,
+    name: 'রহিম উদ্দিন',
+    district: 'Dhaka',
+    language: 'bn'
+  };
   return { user: mockCurrentUser };
 }
 
@@ -44,13 +45,20 @@ export function handleMockRegister(payload) {
  * @returns {object} Success confirmation.
  */
 export function handleMockLogout() {
+  mockCurrentUser = null;
   return { success: true };
 }
 
 /**
  * Handles mock me request.
- * @returns {object} Current user object.
+ * @returns {object} Current user object or throws 401 if unauthenticated.
  */
 export function handleMockMe() {
+  if (!mockCurrentUser) {
+    throw {
+      code: 'UNAUTHORIZED',
+      message_bn: 'আপনার সেশন নেই।'
+    };
+  }
   return { user: mockCurrentUser };
 }

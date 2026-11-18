@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
  * @param {Function} [props.onClick] - Click handler.
  * @param {React.ReactNode} props.children - Button content.
  * @param {string} [props.variant='primary'] - Visual styling variant ('primary' or 'secondary').
+ * @param {string} [props.type='button'] - Button type ('button' or 'submit').
  * @param {boolean} [props.disabled=false] - Disabled state.
  * @param {string} [props.ariaLabel] - Accessible label for screen readers.
  * @param {string} [props.className=''] - Additional CSS classes.
@@ -18,6 +19,7 @@ export function BigButton({
   onClick,
   children,
   variant = 'primary',
+  type = 'button',
   disabled = false,
   ariaLabel,
   className = ''
@@ -44,7 +46,7 @@ export function BigButton({
 
   return (
     <button
-      type="button"
+      type={type}
       onClick={onClick}
       disabled={disabled}
       aria-label={ariaLabel}

@@ -2,12 +2,13 @@ import React, { lazy, Suspense } from 'react';
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { Layout } from './components/Layout.jsx';
 import { Spinner } from './components/Spinner.jsx';
+import { ProtectedRoute } from './components/ProtectedRoute.jsx';
 
-// Eagerly loaded P0 routes as mandated by spec rule 7
+// Eagerly loaded P0 routes
 import Landing from './pages/Landing.jsx';
 import Check from './pages/Check.jsx';
 
-// Lazy loaded secondary routes for bundle optimization
+// Lazy loaded secondary routes
 const Login = lazy(() => import('./pages/Login.jsx'));
 const Register = lazy(() => import('./pages/Register.jsx'));
 const Profile = lazy(() => import('./pages/Profile.jsx'));
@@ -36,9 +37,9 @@ export const router = createBrowserRouter([
       { path: 'check', element: <Check /> },
       { path: 'login', element: withSuspense(<Login />) },
       { path: 'register', element: withSuspense(<Register />) },
-      { path: 'profile', element: withSuspense(<Profile />) },
-      { path: 'history', element: withSuspense(<History />) },
-      { path: 'badges', element: withSuspense(<Badges />) },
+      { path: 'profile', element: withSuspense(<ProtectedRoute><Profile /></ProtectedRoute>) },
+      { path: 'history', element: withSuspense(<ProtectedRoute><History /></ProtectedRoute>) },
+      { path: 'badges', element: withSuspense(<ProtectedRoute><Badges /></ProtectedRoute>) },
       { path: 'scan', element: withSuspense(<Scan />) },
       { path: 'ask', element: withSuspense(<Ask />) },
       { path: 'metrics', element: withSuspense(<Metrics />) },
