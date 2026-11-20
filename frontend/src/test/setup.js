@@ -3,6 +3,40 @@ import '@testing-library/jest-dom';
 // JSDOM polyfill for scrollIntoView
 window.HTMLElement.prototype.scrollIntoView = function() {};
 
+// JSDOM polyfill for URL.createObjectURL
+if (!window.URL.createObjectURL) {
+  window.URL.createObjectURL = function() {
+    return 'blob:mock-url';
+  };
+}
+if (!window.URL.revokeObjectURL) {
+  window.URL.revokeObjectURL = function() {};
+}
+
+// JSDOM polyfill for Blob.text and Blob.arrayBuffer
+if (typeof Blob !== 'undefined') {
+  if (!Blob.prototype.arrayBuffer) {
+    Blob.prototype.arrayBuffer = function() {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsArrayBuffer(this);
+      });
+    };
+  }
+  if (!Blob.prototype.text) {
+    Blob.prototype.text = function() {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsText(this);
+      });
+    };
+  }
+}
+
 // In-memory Storage polyfill for test environments
 class MockStorage {
   constructor() {
