@@ -3,6 +3,22 @@ import '@testing-library/jest-dom';
 // JSDOM polyfill for scrollIntoView
 window.HTMLElement.prototype.scrollIntoView = function() {};
 
+// JSDOM polyfill for matchMedia
+if (!window.matchMedia) {
+  window.matchMedia = function(query) {
+    return {
+      matches: false,
+      media: query,
+      onchange: null,
+      addListener: function() {},
+      removeListener: function() {},
+      addEventListener: function() {},
+      removeEventListener: function() {},
+      dispatchEvent: function() { return false; },
+    };
+  };
+}
+
 // JSDOM polyfill for URL.createObjectURL
 if (!window.URL.createObjectURL) {
   window.URL.createObjectURL = function() {

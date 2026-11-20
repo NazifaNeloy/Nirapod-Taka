@@ -42,6 +42,23 @@ export const bn = {
   hero_cta_btn: 'মেসেজ পরীক্ষা করুন',
   hero_guest_note: 'লগইন বা অ্যাকাউন্ট ছাড়াই সরাসরি বিনামূল্যে যাচাই করুন',
 
+  // 3D Threat Visual (Hero)
+  threat_3d_badge: 'প্রতারণা সতর্কতা সিমুলেশন',
+  threat_3d_caller_title: 'অচেনা কলার',
+  threat_3d_caller_num: '+৮৮০ ১৭১... (সম্ভাব্য প্রতারক)',
+  threat_3d_incoming: 'ইনকামিং প্রতারণা কল...',
+  threat_3d_msg_title: 'সন্দেহজনক এসএমএস',
+  threat_3d_msg_body: 'জরুরি: আপনার অ্যাকাউন্ট সাময়িক স্থগিত! পিন দিন...',
+  threat_3d_decline: 'প্রত্যাখ্যান',
+  threat_3d_accept: 'রিসিভ',
+  threat_3d_bubble1_title: 'সতর্কতা: ওটিপি চুরি!',
+  threat_3d_bubble2_title: 'ভুয়া লটারি লিংক!',
+  threat_3d_bubble3_title: 'অচেনা কল!',
+  threat_3d_pause_btn: '৩ডি অ্যানিমেশন থামান',
+  threat_3d_play_btn: '৩ডি অ্যানিমেশন চালু করুন',
+  threat_3d_interactive_hint: 'মাউস নাড়ান বা স্পর্শ করে ৩ডি দেখুন',
+  threat_3d_screen_time: '১০:৪২',
+
   // Problem stats
   problem_cases_title: 'রিপোর্ট করা প্রতারণার ঘটনা',
   problem_cases_sub: '২০২৫ সালে মোট নথিভুক্ত অভিযোগ',

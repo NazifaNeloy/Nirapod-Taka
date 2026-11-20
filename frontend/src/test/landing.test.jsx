@@ -1,12 +1,12 @@
 import React from 'react';
 import { describe, it, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import Landing from '../pages/Landing.jsx';
 import { LanguageProvider } from '../i18n/useT.jsx';
 
-describe('Landing Page (Brief 3.1)', () => {
-  it('renders hero title, problem cards, workflow animation, and CTA buttons', () => {
+describe('Landing Page (Brief 3.1 & 3D Threat Visual)', () => {
+  it('renders hero title, 3D threat visual, problem cards, workflow animation, and CTA buttons', () => {
     render(
       <MemoryRouter>
         <LanguageProvider>
@@ -17,6 +17,24 @@ describe('Landing Page (Brief 3.1)', () => {
 
     // Hero title
     expect(screen.getByText('প্রতারণার আগেই যাচাই করুন')).toBeInTheDocument();
+
+    // 3D Threat Visual and 3D floating warning speech bubbles
+    expect(screen.getByLabelText('3D Threat Simulation Visual')).toBeInTheDocument();
+    expect(screen.getByText('সতর্কতা: ওটিপি চুরি!')).toBeInTheDocument();
+    expect(screen.getByText('ভুয়া লটারি লিংক!')).toBeInTheDocument();
+    expect(screen.getByText('অচেনা কল!')).toBeInTheDocument();
+    expect(screen.getByText('অচেনা কলার')).toBeInTheDocument();
+    expect(screen.getByText('প্রত্যাখ্যান')).toBeInTheDocument();
+    expect(screen.getByText('রিসিভ')).toBeInTheDocument();
+
+    // 3D Play/Pause accessibility toggle
+    const pauseBtn = screen.getByRole('button', { name: /৩ডি অ্যানিমেশন থামান/i });
+    expect(pauseBtn).toBeInTheDocument();
+    expect(pauseBtn).toHaveAttribute('aria-pressed', 'false');
+
+    // Toggle pause
+    fireEvent.click(pauseBtn);
+    expect(screen.getByRole('button', { name: /৩ডি অ্যানিমেশন চালু করুন/i })).toHaveAttribute('aria-pressed', 'true');
 
     // Problem stats numbers formatted in Bangla numerals
     expect(screen.getByText('৮১,৪২৩')).toBeInTheDocument();

@@ -42,6 +42,23 @@ export const en = {
   hero_cta_btn: 'Check Message Now',
   hero_guest_note: 'Free instant check without registration',
 
+  // 3D Threat Visual (Hero)
+  threat_3d_badge: 'Threat Simulation',
+  threat_3d_caller_title: 'Unknown Caller',
+  threat_3d_caller_num: '+880 171... (Suspected Fraud)',
+  threat_3d_incoming: 'Incoming Threat Call...',
+  threat_3d_msg_title: 'Suspicious SMS',
+  threat_3d_msg_body: 'Urgent: Account locked! Share OTP to unlock...',
+  threat_3d_decline: 'Decline',
+  threat_3d_accept: 'Accept',
+  threat_3d_bubble1_title: 'Alert: OTP Theft!',
+  threat_3d_bubble2_title: 'Fake Lottery Link!',
+  threat_3d_bubble3_title: 'Unknown Call!',
+  threat_3d_pause_btn: 'Pause 3D animation',
+  threat_3d_play_btn: 'Play 3D animation',
+  threat_3d_interactive_hint: 'Move cursor or touch to tilt in 3D',
+  threat_3d_screen_time: '10:42',
+
   // Problem stats
   problem_cases_title: 'Reported Fraud Cases',
   problem_cases_sub: 'Total registered cases in 2025',

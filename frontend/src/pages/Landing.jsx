@@ -2,6 +2,7 @@ import React from 'react';
 import { useT } from '../i18n/useT.jsx';
 import { BigButton } from '../components/BigButton.jsx';
 import { WorkflowAnimation } from '../components/WorkflowAnimation.jsx';
+import { ThreatVisual3D } from '../components/ThreatVisual3D.jsx';
 
 /**
  * Landing Page (Screen A1) providing fraud awareness, interactive workflow demonstration,
@@ -97,6 +98,9 @@ export default function Landing() {
         <p className="text-base md:text-lg text-gray-700 bangla-text leading-relaxed max-w-lg mx-auto">
           {t('hero_subheadline')}
         </p>
+
+        {/* Interactive 3D Threat Visual */}
+        <ThreatVisual3D />
 
         <div className="pt-2 max-w-md mx-auto">
           <BigButton to="/check" ariaLabel={t('hero_cta_btn')}>
